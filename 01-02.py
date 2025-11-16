@@ -6,3 +6,4 @@ if __name__ == "__main__" :
 
     for i in range(len(inStr)-1,-1,-1):
         print('%c' % inStr[i], end='')
+        #Ddd
