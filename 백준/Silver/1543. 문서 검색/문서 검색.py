@@ -1,8 +1,5 @@
-import sys
-data = sys.stdin.read().splitlines()
-    
-line1 = data[0]
-line2 = data[1]
+line1 = input()
+line2 = input()
 
 def ser(line1, line2):
     cc = line1.count(line2)
