@@ -1,15 +1,27 @@
+import sys
+
+input = sys.stdin.readline
+
 n = int(input())
 m = int(input())
-s = input()
+s = input().strip()
 
-p = "I"+"OI" * n
-p_num = len(p) 
 count = 0
+a = 0 
+i = 1
 
-for i in range(m):
-    s_part =s[i:(i+p_num)]
-    if (s_part == p):
+while i < m -1:
+    if s[i-1] == "I" and s[i] == "O" and s[i+1] == "I":
         count += 1
+
+        if count == n:
+            a += 1
+            count -= 1
+        i += 2
+    else:
+        count = 0
+        i += 1
+
     
     
-print(count)
+print(a)
