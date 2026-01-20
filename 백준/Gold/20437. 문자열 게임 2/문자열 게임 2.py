@@ -9,40 +9,26 @@ while j < t:
     w = input().strip()
     k = int(input())
 
-    char = {}
-    sal  = {}
+    char = [[]for _ in range(26)]
 
     for idx, key in enumerate(w):
-        if key not in char:
-            char[key] = []
-        char[key].append(idx)
+        code = ord(key) - ord('a')
+        char[code].append(idx)
         
-        if len(char[key]) >= k:
-            sal[key] = char[key]
+    result = []
+    for key in char:
+        if len(key) < k:
+             continue
+        
+        for m in range (len(key) - k + 1): 
+            
+                val = key[m+k-1] - key[m] + 1
 
-    if not sal:
+                result.append(val)
+    if not result:
         print(-1)
-
-    else:
-        miin = 10001
-        maax = 0
-        for key in sal:
-            for m in range (len(sal[key]) - k + 1): 
-                temp = []
-                temp = sal[key][m:m+k]
-                
-                fst_val = temp[0]
-                lst_val = temp[-1]
-                
-                num = lst_val - fst_val + 1
-
-                if num >= maax:
-                   maax = num
-                   
-                if num <= miin:
-                     miin = num
-                
-                        
-        print(miin, maax)
-
+    else:   
+        print(f"{min(result)} {max(result)}")
     j += 1   
+
+    
